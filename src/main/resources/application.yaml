@@ -1,0 +1,31 @@
+server:
+  port: 8082
+  error:
+    whitelabel:
+      enabled: true
+    path: /error
+
+logging:
+  level:
+    ROOT: DEBUG
+    org:
+      springframework:
+        security: debug
+
+#https://medium.com/devops-dudes/securing-spring-boot-rest-apis-with-keycloak-1d760b2004e
+keycloak:
+  auth-server-url: http://quickstart-kc-entando.192.168.64.2.nip.io/auth
+  bearer-only: true
+  credentials:
+    secret: 4c356c1d-27c3-409e-a988-beb8591d5e36
+  realm: entando
+  resource: germanogiudici-codemotion-bff-server
+  use-resource-role-mappings: true
+
+app:
+  version: 1
+  name: springboot-kc-sample
+  security:
+    auth-server-url: ${keycloak.auth-server-url}
+    realm: ${keycloak.realm}
+    client-ui: entando-web
