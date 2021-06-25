@@ -1,5 +1,5 @@
 server:
-  port: 8082
+  port: 8081
   error:
     whitelabel:
       enabled: true
@@ -17,9 +17,9 @@ keycloak:
   auth-server-url: http://quickstart-kc-entando.192.168.64.2.nip.io/auth
   bearer-only: true
   credentials:
-    secret: 4c356c1d-27c3-409e-a988-beb8591d5e36
+    secret: a430df05-8ba3-4e3c-bef1-4c508a6ee564
   realm: entando
-  resource: germanogiudici-codemotion-bff-server
+  resource: germanogiudici-entando-bundle-se-server
   use-resource-role-mappings: true
 
 app:
