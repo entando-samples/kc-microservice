@@ -1,3 +1,11 @@
+
+entando:
+  spring.security.oauth2.client.registration.oidc.client.secret: ${spring.security.oauth2.client.registration.oidc.client.secret:""}
+  keycloak.public.client.id:  ${keycloak.public.client.id:""}
+  keycloak.auth.url: ${keycloak.auth.url:""}
+  keycloak.client.id: ${keycloak.client.id:""}
+  keycloak.realm: ${keycloak.realm:""}
+
 server:
   port: 8081
   error:
@@ -14,18 +22,18 @@ logging:
 
 #https://medium.com/devops-dudes/securing-spring-boot-rest-apis-with-keycloak-1d760b2004e
 keycloak:
-  auth-server-url: http://quickstart-kc-entando.192.168.64.2.nip.io/auth
+  auth-server-url: ${entando.keycloak.auth.url}
   bearer-only: true
   credentials:
-    secret: a430df05-8ba3-4e3c-bef1-4c508a6ee564
-  realm: entando
-  resource: germanogiudici-entando-bundle-se-server
+    secret: ${entando.spring.security.oauth2.client.registration.oidc.client.secret}
+  resource: ${entando.keycloak.client.id}
+  #realm: ${entando.keycloak.realm} #from env
   use-resource-role-mappings: true
 
 app:
   version: 1
   name: springboot-kc-sample
   security:
-    auth-server-url: ${keycloak.auth-server-url}
-    realm: ${keycloak.realm}
-    client-ui: entando-web
+    auth-server-url: ${entando.keycloak.auth.url}
+    realm: ${entando.keycloak.realm}
+    client-ui: ${entando.keycloak.public.client.id}

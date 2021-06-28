@@ -11,13 +11,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.security.RolesAllowed;
+
 @RestController
 @RequestMapping("/api")
 @Slf4j
 public class ApiController {
 
-    //@RolesAllowed("codemotion-bff-admin")
-    @PreAuthorize("hasAuthority('ROLE_mf-widget-admin')")
+    @RolesAllowed("mf-widget-admin")
+    //@PreAuthorize("hasAuthority('ROLE_mf-widget-admin')")
     @CrossOrigin
     @GetMapping("/mymetric")
     public Response api() {
