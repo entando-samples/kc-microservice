@@ -14,15 +14,20 @@ logging:
 
 #https://medium.com/devops-dudes/securing-spring-boot-rest-apis-with-keycloak-1d760b2004e
 keycloak:
-  auth-server-url: http://quickstart-kc-entando.192.168.64.2.nip.io/auth
+  #the keycloak authentication url
+  #keycloack has to have a confidential client for protecting this MS
+  auth-server-url: http://CHANGE-IT/auth
   ssl-required: none
   bearer-only: true
   credentials:
-    secret: a430df05-8ba3-4e3c-bef1-4c508a6ee564
-  realm: entando
-  resource: germanogiudici-entando-bundle-se-server
+    #the client must be confidential, this is the secret
+    secret: CHANGE-IT
+  realm: CHANGE-IT
+  #the client name
+  resource: CHANGE-IT
   use-resource-role-mappings: true
 
+#the configuration for open api
 app:
   version: 1
   name: springboot-kc-sample

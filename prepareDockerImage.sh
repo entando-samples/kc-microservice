@@ -2,9 +2,9 @@
 
 echo ""
 echo "Building project and Docker image "
-#todo export as global variable
-#todo manage version
-export MY_IMAGE="germanogiudici/entando-bundle-seed-ms-springboot-kc:0.0.1-SNAPSHOT"
+#btw you can change the image repo and version too
+#best practice is to align it to the pom artifact name and version
+export MY_IMAGE="CHANGE-IT/entando-bundle-seed-ms-springboot-kc:0.0.1-SNAPSHOT"
 
 docker build -t ${MY_IMAGE}  .
 echo "Built $MY_IMAGE"
