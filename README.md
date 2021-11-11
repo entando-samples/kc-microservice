@@ -1,6 +1,6 @@
-#Springboot Keycloak Entando compatible Microservice Sample
+# Springboot Keycloak Entando compatible Microservice Sample
 
-###This is a sample of a Micro Service that can be deployed inside an Entando bundle
+### This is a sample of a Micro Service that can be deployed inside an Entando bundle
 
 The application expose a single rest api protected by Keycloak, you can reach it out using swagger-ui.
 There is a single script with the commands to build and push a docker image.
@@ -11,7 +11,7 @@ e.g. docker run -p 8080:8080 -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin q
 
 Before build it you need to change the CHANGE-IT placeholders (search them)
 
-##Notes:
+## Notes:
 To Build and push the Docker image:
 ./prepareDockerImage.sh
 
